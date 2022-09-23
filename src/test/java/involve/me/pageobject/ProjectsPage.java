@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import io.qameta.allure.Step;
+
 public class ProjectsPage extends ConnectingPage{
 
 	//Frame
@@ -87,6 +89,7 @@ public class ProjectsPage extends ConnectingPage{
 	//Actions 
 
 	//Add new workspace
+	@Step("WorkSpace added: {workspaceName}")
 	public void addNewWorkspace(String workspaceName) {
 
 		waitForElementToBeClickable(plusBtn);
@@ -99,6 +102,7 @@ public class ProjectsPage extends ConnectingPage{
 	}
 
 	//Rename existing workspace
+	@Step("WorkSpace renamed: {workspaceName}")
 	public void renameWorkspace(String workspaceName) {
 
 		sleepFor(1200);
@@ -114,6 +118,7 @@ public class ProjectsPage extends ConnectingPage{
 	}
 
 	//Delete workspace
+	@Step("WorkSpace deleted: {workspaceName}")
 	public void deleteWorkspace(String workspaceName) {
 
 		sleepFor(1200);
@@ -129,6 +134,7 @@ public class ProjectsPage extends ConnectingPage{
 	}
 
 	// Pick a workspace and create a new project from template 
+	@Step("A new Project created from template in workspace: {workspaceName}")
 	public void createProjectFromTemp(String workspaceName) {
 
 		sleepFor(1000);
@@ -140,6 +146,7 @@ public class ProjectsPage extends ConnectingPage{
 	}
 
 	// Pick a workspace and create a new project from scratch
+	@Step("A new Project created from scratch in workspace: {chooseWorkspaceToCreate}")
 	public void createProjectFromScratch(String chooseWorkspaceToCreate) {
 
 		sleepFor(1000);
@@ -151,6 +158,7 @@ public class ProjectsPage extends ConnectingPage{
 	}
 
 	//Move to a workspace by it's name 
+	@Step("Moving to workspace: {workspaceName}")
 	public void moveToWorkspace(String workspaceName) {
 
 		sleepFor(1500);
@@ -165,7 +173,8 @@ public class ProjectsPage extends ConnectingPage{
 		sleepFor(1000);
 	}
 
-	// Duplicate existing project 
+	// Duplicate existing project
+	@Step("{projectName} has been duplicated")
 	public void duplicateProject(String projectName) {
 
 		waitForListToLoad(projectList);
@@ -183,6 +192,7 @@ public class ProjectsPage extends ConnectingPage{
 	}
 
 	// Delete existing project
+	@Step("{projectName} has been deleted")
 	public void deleteProject(String projectName) {
 
 		waitForListToLoad(projectList);
@@ -203,7 +213,8 @@ public class ProjectsPage extends ConnectingPage{
 		refreshPage();
 	}
 
-	// Move a project between workspaces 
+	// Move a project between workspaces
+	@Step("{projectName} moved to workspace")
 	public void moveProjectToWorkspcae(String projectName) {
 
 		waitForListToLoad(projectList);
@@ -220,7 +231,8 @@ public class ProjectsPage extends ConnectingPage{
 		}
 	}
 
-	//Click edit a project by it's name 
+	//Click edit a project by it's name
+	@Step("{projectName} has been edited")
 	public void clickEditproject(String projectName) {
 
 		waitForListToLoad(projectList);
