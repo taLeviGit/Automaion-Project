@@ -99,10 +99,10 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.10.1</version>
 				<configuration>
-                    <source>17</source>
-                    <target>17</target>
-                    <encoding>UTF-8</encoding>
-                </configuration>
+					<source>17</source>
+					<target>17</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
 			</plugin>
 			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
 			<plugin>
@@ -117,6 +117,10 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
 					<systemProperties>
+						<property>
+							<name>listener</name>
+							<value>utilities.ListenerClass</value>
+						</property>
 						<allure.results.directory>${basedir}/target/allure-results</allure.results.directory>
 						<allure.link.issue.pattern>https://example.org/issue/{}</allure.link.issue.pattern>
 						<allure.link.tms.pattern>https://example.org/tms/{}</allure.link.tms.pattern>
@@ -133,22 +137,22 @@
 				<version>2.11.2</version>
 			</plugin>
 			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-clean-plugin -->
-            <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <filesets>
-                        <fileset>
-                            <directory>${basedir}</directory>
-                            <includes>
-                                <include>**/*.log</include>
-                                <include>**/*.iml</include>
-                            </includes>
-                        </fileset>
-                    </filesets>
-                    <failOnError>false</failOnError>
-                </configuration>
-            </plugin>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>${basedir}</directory>
+							<includes>
+								<include>**/*.log</include>
+								<include>**/*.iml</include>
+							</includes>
+						</fileset>
+					</filesets>
+					<failOnError>false</failOnError>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
